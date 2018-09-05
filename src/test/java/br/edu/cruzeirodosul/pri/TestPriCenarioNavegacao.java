@@ -1,38 +1,48 @@
 package br.edu.cruzeirodosul.pri;
 
-import br.edu.cruzeirodosul.selenium.Selenium;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.openqa.selenium.WebElement;
 
-import java.util.List;
+import br.edu.cruzeirodosul.selenium.Selenium;
+import br.edu.cruzeirodosul.util.MenuPrincipal;
+import br.edu.cruzeirodosul.util.PortalAlunoLogin;
+import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioNavegacao {
 
-    @Test
-    public void navegar() {
-        Selenium selenium = Selenium.abrir("http://localhost:4200/pri/");
-        selenium.maximizar();
-        this.clicarEmTodosVerMaisDetalhes(selenium);
+	MenuPrincipal menu = new MenuPrincipal();
 
-        selenium.clicarNoPrimeiroLinkComONome("button", "visualizar");
+	@Test
+	public void navegar() {
+		Selenium selenium = menu.irParaMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
 
-        this.clicarEmTodosVerMaisDetalhes(selenium);
+		selenium.esperarPor(2);
+		this.clicarEmTodosVerMaisDetalhes(selenium);
 
-        selenium.clicarNoPrimeiroLinkComONome("button", "visualizar recursos");
-        selenium.clicarNoPrimeiroLinkComONome("a", "voltar");
-        selenium.clicarNoPrimeiroLinkComONome("a", "voltar");
-        selenium.fechar();
-    }
+		selenium.clicarNoPrimeiroLinkComONome("button", "visualizar");
 
-    private void clicarEmTodosVerMaisDetalhes(Selenium selenium) {
-        List<WebElement> webElements = selenium.pegarItensPelaTagENome("span", "ver mais detalhes");
-        for (WebElement webElement : webElements) {
-            webElement.click();
-            selenium.esperarPor(1);
-        }
-    }
+		this.clicarEmTodosVerMaisDetalhes(selenium);
+
+		selenium.clicarNoPrimeiroLinkComONome("button", "visualizar recursos");
+		selenium.clicarNoPrimeiroLinkComONome("a", "voltar");
+		selenium.clicarNoPrimeiroLinkComONome("a", "voltar");
+		selenium.esperarPor(1);
+		selenium.clicarNoPrimeiroLinkComONome("button", "Fechar");
+		
+		selenium.esperarPor(1);
+		PortalAlunoLogin.sairPortal(selenium);
+	}
+
+	private void clicarEmTodosVerMaisDetalhes(Selenium selenium) {
+		List<WebElement> webElements = selenium.pegarItensPelaTagENome("span", "ver mais detalhes");
+		for (WebElement webElement : webElements) {
+			webElement.click();
+			selenium.esperarPor(1);
+		}
+	}
 }
-

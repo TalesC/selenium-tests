@@ -12,24 +12,19 @@ public class TestCenarioLogin {
 	
 	@Test
 	public void devefazerLoginEIrParaAreaDoAluno() {
-		PortalAlunoLogin portal = new PortalAlunoLogin();
-		Selenium sel = portal.irParaAreaAluno("887277", "36219589831");
+		Selenium selenium = PortalAlunoLogin.irParaAreaAluno("887277", "36219589831");
 		
-		WebElement menu = sel.pegarItemPeloId("categorias-2");
+		WebElement menu = selenium.pegarItemPeloId("categorias-2");
 		assertNotNull(menu);
 		
-		sel.esperarPor(1);
-		WebElement exit = sel.pegarItemPelaTagENome("span", "SAIR");
-		exit.click();
-		
-		sel.esperarPor(1);
-		sel.fechar();
+		selenium.esperarPor(1);
+		PortalAlunoLogin.sairPortal(selenium);
 	}
 	
-	@Test
+	/*@Test
 	public void devefazerLoginEIrParaBlackboard() {
 		PortalAlunoLogin portal = new PortalAlunoLogin();
 		Selenium sel = portal.irParaBlackboard("887277", "36219589831");
-	}
+	}*/
 	
 }

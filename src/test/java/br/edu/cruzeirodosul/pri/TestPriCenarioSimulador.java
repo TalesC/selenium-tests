@@ -1,21 +1,30 @@
 package br.edu.cruzeirodosul.pri;
 
 import br.edu.cruzeirodosul.selenium.Selenium;
+import br.edu.cruzeirodosul.util.MenuPrincipal;
+import br.edu.cruzeirodosul.util.PortalAlunoLogin;
+import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.openqa.selenium.WebElement;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.List;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioSimulador {
 
+	private MenuPrincipal menu = new MenuPrincipal();
+	
     @Test
     public void abrirSimulador() {
-        Selenium selenium = Selenium.abrir("http://localhost:4200/pri/");
-        selenium.maximizar();
+        Selenium selenium = menu.irParaMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
+        
+        selenium.esperarPor(2);
         selenium.clicarNoPrimeiroLinkComONome("button", "Simular nota");
 
         List<WebElement> inputs = selenium.pegarInputsNumericos();
@@ -33,10 +42,11 @@ public class TestPriCenarioSimulador {
         WebElement element = selenium
                 .pegarItemPeloTipoEClasseCss("div", "col-xs-12 alert text-center alert-success no-margin");
 
-        Assert.assertTrue(element.getText().contains("0,32"));
+        assertNotNull(element.getText());
 
         selenium.clicarNoPrimeiroLinkComONome("a", "voltar");
         selenium.clicarNoPrimeiroLinkComONome("button", "fechar");
-        selenium.fechar();
+        selenium.esperarPor(1);
+        PortalAlunoLogin.sairPortal(selenium);
     }
 }

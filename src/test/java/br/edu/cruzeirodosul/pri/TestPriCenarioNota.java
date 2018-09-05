@@ -1,28 +1,42 @@
 package br.edu.cruzeirodosul.pri;
 
-import br.edu.cruzeirodosul.selenium.Selenium;
-import org.junit.Assert;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.openqa.selenium.WebElement;
 
+import br.edu.cruzeirodosul.selenium.Selenium;
+import br.edu.cruzeirodosul.util.MenuPrincipal;
+import br.edu.cruzeirodosul.util.PortalAlunoLogin;
+import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
+
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioNota {
 
+	private MenuPrincipal menu = new MenuPrincipal(); 
+	
     @Test
     public void verificarNota() {
-        Selenium selenium = Selenium.abrir("http://localhost:4200/pri");
+        Selenium selenium = menu.irParaMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
+
+        selenium.esperarPor(2);
+        selenium.pegarItensPelaTagENome("span", "ver mais detalhes").get(1).click();
 
         selenium.esperarPor(1);
-        selenium.clicarNoPrimeiroLinkComONome("span", "ver mais detalhes");
+        List<WebElement> elements = selenium.pegarItensPelaTagENome("span", "C");
+        
+        assertNotNull(elements);
+        assertTrue(elements.size() > 0);
+        assertTrue(elements.get(0).getText().equalsIgnoreCase("C"));
 
-        WebElement element = selenium.pegarItemPeloXpath(
-                "//*[@id=\"collapse-5\"]/div/div[1]/app-pri-disciplinas/table/tbody/tr[4]/td/div/span[4]/span/u"
-        );
-
-        Assert.assertTrue(element.getText().equalsIgnoreCase("C"));
-
-        selenium.fechar();
+        selenium.esperarPor(1);
+        selenium.clicarNoPrimeiroLinkComONome("button", "Fechar");
+        selenium.esperarPor(1);
+        PortalAlunoLogin.sairPortal(selenium);
     }
 }
