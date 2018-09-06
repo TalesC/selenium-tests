@@ -45,7 +45,7 @@ public class SeleniumFinder {
         }
 
         if (elementsResult.isEmpty()) {
-            throw new ErroNenhumItemEncontrado("Com a tag: " + tagName + " e nome: " + placeholder);
+            throw new ErroNenhumItemEncontrado("Com a tag: " + tagName + " e placeholder: " + placeholder);
         }
 
         return elementsResult;

@@ -22,7 +22,7 @@ public class TestPriCenarioNota {
 	
     @Test
     public void verificarNota() {
-        Selenium selenium = menu.irParaMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
+        Selenium selenium = menu.irParaSubMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
 
         selenium.esperarPor(2);
         selenium.pegarItensPelaTagENome("span", "ver mais detalhes").get(1).click();

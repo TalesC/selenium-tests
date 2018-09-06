@@ -19,7 +19,7 @@ public class TestPriCenarioNavegacao {
 
 	@Test
 	public void navegar() {
-		Selenium selenium = menu.irParaMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
+		Selenium selenium = menu.irParaSubMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
 
 		selenium.esperarPor(2);
 		this.clicarEmTodosVerMaisDetalhes(selenium);

@@ -22,7 +22,7 @@ public class TestPriCenarioSimulador {
 	
     @Test
     public void abrirSimulador() {
-        Selenium selenium = menu.irParaMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
+        Selenium selenium = menu.irParaSubMenu("887277", "36219589831", MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
         
         selenium.esperarPor(2);
         selenium.clicarNoPrimeiroLinkComONome("button", "Simular nota");

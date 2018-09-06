@@ -4,7 +4,7 @@ public enum MenuPrincipalEnum {
 	
 	HOME("categoria-1"),
 	MINHA_CONTA("categoria-2"),
-	MEUS_CURSOS("categora-3"),
+	MEUS_CURSOS("categoria-3"),
 	VIDA_ACADEMICA("categoria-4"),
 	FINANCEIRO("categoria-5"),
 	CAA_ONLINE("categoria-6");
