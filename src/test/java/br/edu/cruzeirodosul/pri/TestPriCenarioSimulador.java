@@ -19,12 +19,11 @@ import java.util.List;
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioSimulador {
 
-	UserLogin user = new UserLogin("887277", "36219589831");
-	private MenuPrincipal menu = new MenuPrincipal();
+	UserLogin user = new UserLogin("1106295", "3726723102");
 	
     @Test
     public void abrirSimulador() {
-        Selenium selenium = menu.irParaSubMenu(user.getRgm(), user.getPassword(), MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
+    	Selenium selenium = irParaMenuPRI();
         
         selenium.esperarPor(2);
         selenium.clicarNoPrimeiroLinkComONome("button", "Simular nota");
@@ -41,14 +40,26 @@ public class TestPriCenarioSimulador {
         selenium.removerFocus();
         selenium.esperarPor(1);
 
-        WebElement element = selenium
-                .pegarItemPeloTipoEClasseCss("div", "col-xs-12 alert text-center alert-success no-margin");
+        WebElement element = selenium.pegarItemPeloTipoEClasseCss("div", "col-xs-12 alert text-center alert-success no-margin");
 
         assertNotNull(element.getText());
 
-        selenium.clicarNoPrimeiroLinkComONome("a", "voltar");
+        sairPRI(selenium);
+    }
+
+	private void sairPRI(Selenium selenium) {
+		selenium.clicarNoPrimeiroLinkComONome("a", "voltar");
         selenium.clicarNoPrimeiroLinkComONome("button", "fechar");
         selenium.esperarPor(1);
         PortalAlunoLogin.sairPortal(selenium);
-    }
+	}
+
+	private Selenium irParaMenuPRI() {
+		Selenium selenium = PortalAlunoLogin.irParaAreaAluno(user.getRgm(), user.getPassword());
+    	selenium.esperarPor(1);
+    	selenium.pegarItensPelaTagENome("div", "acesse").get(1).click();
+    	selenium.esperarPor(1);
+        MenuPrincipal.irParaSubMenu(selenium, MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
+		return selenium;
+	}
 }

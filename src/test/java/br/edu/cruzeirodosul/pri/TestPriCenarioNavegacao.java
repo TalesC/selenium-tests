@@ -16,12 +16,12 @@ import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioNavegacao {
 
-	UserLogin user = new UserLogin("887277", "36219589831");	
-	MenuPrincipal menu = new MenuPrincipal();
-
+	UserLogin user = new UserLogin("1103148", "1534914692");
+	
 	@Test
 	public void navegar() {
-		Selenium selenium = menu.irParaSubMenu(user.getRgm(), user.getPassword(), MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
+		Selenium selenium = PortalAlunoLogin.irParaAreaAluno(user.getRgm(), user.getPassword());
+		MenuPrincipal.irParaSubMenu(selenium, MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
 
 		selenium.esperarPor(2);
 		this.clicarEmTodosVerMaisDetalhes(selenium);
