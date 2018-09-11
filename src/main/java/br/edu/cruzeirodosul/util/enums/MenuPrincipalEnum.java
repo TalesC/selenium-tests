@@ -1,13 +1,12 @@
 package br.edu.cruzeirodosul.util.enums;
 
 public enum MenuPrincipalEnum {
-	
-	HOME("categoria-1"),
-	MINHA_CONTA("categoria-2"),
-	MEUS_CURSOS("categoria-3"),
-	VIDA_ACADEMICA("categoria-4"),
-	FINANCEIRO("categoria-5"),
-	CAA_ONLINE("categoria-6");
+	VIDA_ACADEMICA("categoria-1"),
+	FINANCEIRO("categoria-2"),
+	CAA_ONLINE("categoria-3"),
+	REMATRICULA("categoria-4"),
+	ATIVIDADES_COMPLEMENTARES("categoria-5"),
+	CONSULTAS("categoria-6");
 	
 	private String descricao;
 	

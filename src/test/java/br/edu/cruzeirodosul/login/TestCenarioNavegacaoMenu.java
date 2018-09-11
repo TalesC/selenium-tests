@@ -23,31 +23,16 @@ public class TestCenarioNavegacaoMenu {
 	
 		List<WebElement> elements = new ArrayList<>();
 		for(MenuPrincipalEnum  m : MenuPrincipalEnum.values()) {
-			System.out.println(m +" " + m.getDescricao());
 			menu.irParaMenu(selenium, m);
-			WebElement element = selenium.pegarItemPelaTagENome("h3", getTitulo(m));
+			WebElement element = selenium.pegarItemPeloTipoEClasseCss("div", "box-"+m.getDescricao());
 			elements.add(element);
 		}		
-		
+				
 		assertTrue(elements.size() > 0);
 		assertTrue(elements.size() == 6);
 		
 		PortalAlunoLogin.sairPortal(selenium);
 	}
 	
-	private String getTitulo(MenuPrincipalEnum m) {
-		
-		switch (m) {
-			case HOME: return "MÍDIAS SOCIAIS";
-			case MINHA_CONTA: return "MINHA CONTA";
-			case MEUS_CURSOS: return "MEUS CURSOS";
-			case VIDA_ACADEMICA: return "VIDA ACADÊMICA";
-			case FINANCEIRO: return "FINANCEIRO";
-			case CAA_ONLINE: return "CAA ONLINE";
-			
-			default: return ""	;	
-		}
-		
-	}
 	
 }
