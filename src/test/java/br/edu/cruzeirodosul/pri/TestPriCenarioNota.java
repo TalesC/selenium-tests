@@ -27,7 +27,7 @@ public class TestPriCenarioNota {
         Selenium selenium = menu.irParaSubMenu(user.getRgm(), user.getPassword(), MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
 
         selenium.esperarPor(2);
-        selenium.pegarItensPelaTagENome("span", "ver mais detalhes").get(0).click();
+        selenium.pegarItensPelaTagENome("span", "ver mais detalhes").get(1).click();
 
         selenium.esperarPor(1);
         List<WebElement> elements = selenium.pegarItensPelaTagENome("span", "C");
