@@ -1,6 +1,7 @@
 package br.edu.cruzeirodosul.pri;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -30,6 +31,12 @@ public class TestPriCenarioCriaRecurso {
 		selenium.esperarPor(1);
 		
 		assertNotNull(selenium.pegarItemPelaTagENome("h4", "Questão n° 1"));
+		
+		selenium.clicarNoPrimeiroLinkComONome("button", "visualizar recursos");
+		selenium.esperarPor(1);
+		
+		assertTrue(selenium.pegarItensPelaTagENome("p", "Selenium Teste Automatizado").size() > 0);		
+		
 		sairDePri(selenium);
 		
 	}
