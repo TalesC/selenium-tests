@@ -35,7 +35,7 @@ public class TestPriCenarioCriaRecurso {
 		selenium.clicarNoPrimeiroLinkComONome("button", "visualizar recursos");
 		selenium.esperarPor(1);
 		
-		assertTrue(selenium.pegarItensPelaTagENome("p", "Selenium Teste Automatizado").size() > 0);		
+		assertTrue(selenium.pegarItensPelaTagENome("p", "Selenium Teste Automatizado Criacao").size() > 0);		
 		
 		sairDePri(selenium);
 		
