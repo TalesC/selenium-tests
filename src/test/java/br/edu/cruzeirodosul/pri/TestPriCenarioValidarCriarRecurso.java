@@ -12,13 +12,12 @@ import br.edu.cruzeirodosul.util.PortalAlunoLogin;
 import br.edu.cruzeirodosul.util.UserLogin;
 import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
 
-public class TestPriCenarioCriarRecurso {
+public class TestPriCenarioValidarCriarRecurso {
 	
-	UserLogin user = null;
+	UserLogin user = new UserLogin("1202472", "4799137140");
 	
 	@Test
 	public void deveValidarCriarRecursoForaDoPerirodo() {
-		user = new UserLogin("1202472", "4799137140");
 		Selenium selenium = irParaMenuPRI(user, 0);
 		selenium.esperarPor(1);
 		
@@ -32,10 +31,14 @@ public class TestPriCenarioCriarRecurso {
 		WebElement e = selenium.procurarItem(By.tagName("app-ucs-alert")).findElement(By.tagName("p"));
 		assertTrue(!e.getText().isEmpty());
 		
+		sairDePRI(selenium);
+				
+	}
+
+	private void sairDePRI(Selenium selenium) {
 		selenium.esperarPor(1);
 		selenium.clicarNoPrimeiroLinkComONome("button", "Fechar");
 		PortalAlunoLogin.sairPortal(selenium);
-				
 	}
 	
 	private Selenium irParaMenuPRI(UserLogin user, Integer posicaoCurso) {
@@ -46,5 +49,6 @@ public class TestPriCenarioCriarRecurso {
         MenuPrincipal.irParaSubMenu(selenium, MenuPrincipalEnum.VIDA_ACADEMICA, "PRI");
 		return selenium;
 	}
+		
 
 }

@@ -1,10 +1,10 @@
 package br.edu.cruzeirodosul.selenium;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class Selenium {
 
@@ -90,4 +90,15 @@ public class Selenium {
     public WebDriver pegarWebDriver() {
         return driver.pegarWebDriver();
     }
+    
+    public Selenium entrarNoIFrame(WebElement frame) {
+    	this.pegarWebDriver().switchTo().frame(frame);
+    	return this;
+    }
+    
+    public Selenium sairDoIFrame() {
+    	this.pegarWebDriver().switchTo().defaultContent();
+    	return this;
+    }
+    
 }
