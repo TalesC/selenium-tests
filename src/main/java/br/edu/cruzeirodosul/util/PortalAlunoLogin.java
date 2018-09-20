@@ -6,6 +6,10 @@ import br.edu.cruzeirodosul.selenium.Selenium;
 
 public class PortalAlunoLogin {
 	
+	private PortalAlunoLogin() {
+		super();
+	}
+	
 	public static Selenium irParaAreaAluno(String rgm, String password) {
 		Selenium selenium = login(rgm, password);	
 		selenium.pegarItemPelaTagENome("button", "ÁREA DO ALUNO").click();

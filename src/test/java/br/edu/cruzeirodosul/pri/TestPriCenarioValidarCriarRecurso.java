@@ -6,15 +6,17 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import br.edu.cruzeirodosul.model.UserLogin;
 import br.edu.cruzeirodosul.selenium.Selenium;
 import br.edu.cruzeirodosul.util.MenuPrincipal;
 import br.edu.cruzeirodosul.util.PortalAlunoLogin;
-import br.edu.cruzeirodosul.util.UserLogin;
+import br.edu.cruzeirodosul.util.enums.Cenario;
 import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
+import br.edu.cruzeirodosul.util.pri.PriUsers;
 
 public class TestPriCenarioValidarCriarRecurso {
 	
-	UserLogin user = new UserLogin("1202472", "4799137140");
+	UserLogin user = PriUsers.getUserCenarioProvaRealizadaSemRecurso(Cenario.DEV);
 	
 	@Test
 	public void deveValidarCriarRecursoForaDoPerirodo() {

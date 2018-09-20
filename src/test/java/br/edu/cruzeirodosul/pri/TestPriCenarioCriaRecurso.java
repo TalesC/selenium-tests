@@ -7,15 +7,17 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import br.edu.cruzeirodosul.model.UserLogin;
 import br.edu.cruzeirodosul.selenium.Selenium;
 import br.edu.cruzeirodosul.util.MenuPrincipal;
 import br.edu.cruzeirodosul.util.PortalAlunoLogin;
-import br.edu.cruzeirodosul.util.UserLogin;
+import br.edu.cruzeirodosul.util.enums.Cenario;
 import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
+import br.edu.cruzeirodosul.util.pri.PriUsers;
 
 public class TestPriCenarioCriaRecurso {
-		
-	UserLogin user = new UserLogin("1103148", "1534914692");
+	
+	UserLogin user = PriUsers.getUserCenarioProvaRealizadaComRecurso(Cenario.DEV);
 	
 	@Test
 	public void deveCriarUmRecurso() {

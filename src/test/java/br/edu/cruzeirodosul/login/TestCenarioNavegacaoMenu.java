@@ -15,16 +15,14 @@ import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
 
 public class TestCenarioNavegacaoMenu {
 
-	MenuPrincipal menu = new MenuPrincipal();
-	
 	@Test
 	public void navegacaoPeloMenu() {
 		Selenium selenium = PortalAlunoLogin.irParaAreaAluno("887277", "36219589831");
 	
 		List<WebElement> elements = new ArrayList<>();
 		for(MenuPrincipalEnum  m : MenuPrincipalEnum.values()) {
-			menu.irParaMenu(selenium, m);
-			WebElement element = selenium.pegarItemPeloTipoEClasseCss("div", "box-"+m.getDescricao());
+			MenuPrincipal.irParaMenu(selenium, m);
+			WebElement element = selenium.pegarItemPeloTipoEClasseCss("div", "box-"+m.get());
 			elements.add(element);
 		}		
 				

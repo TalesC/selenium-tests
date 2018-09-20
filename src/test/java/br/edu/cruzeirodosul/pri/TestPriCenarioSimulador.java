@@ -1,10 +1,12 @@
 package br.edu.cruzeirodosul.pri;
 
+import br.edu.cruzeirodosul.model.UserLogin;
 import br.edu.cruzeirodosul.selenium.Selenium;
 import br.edu.cruzeirodosul.util.MenuPrincipal;
 import br.edu.cruzeirodosul.util.PortalAlunoLogin;
-import br.edu.cruzeirodosul.util.UserLogin;
+import br.edu.cruzeirodosul.util.enums.Cenario;
 import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
+import br.edu.cruzeirodosul.util.pri.PriUsers;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +21,7 @@ import java.util.List;
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioSimulador {
 
-	UserLogin user = new UserLogin("1106295", "3726723102");
+	UserLogin user = PriUsers.getUserCenarioProvaNaoRealizada(Cenario.DEV);
 	
     @Test
     public void abrirSimulador() {

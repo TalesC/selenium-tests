@@ -10,16 +10,18 @@ import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.openqa.selenium.WebElement;
 
+import br.edu.cruzeirodosul.model.UserLogin;
 import br.edu.cruzeirodosul.selenium.Selenium;
 import br.edu.cruzeirodosul.util.MenuPrincipal;
 import br.edu.cruzeirodosul.util.PortalAlunoLogin;
-import br.edu.cruzeirodosul.util.UserLogin;
+import br.edu.cruzeirodosul.util.enums.Cenario;
 import br.edu.cruzeirodosul.util.enums.MenuPrincipalEnum;
+import br.edu.cruzeirodosul.util.pri.PriUsers;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioNota {
 
-	UserLogin user = new UserLogin("1103148", "1534914692");
+	UserLogin user = PriUsers.getUserCenarioProvaRealizadaComRecurso(Cenario.DEV);
 	
     @Test
     public void verificarNota() {

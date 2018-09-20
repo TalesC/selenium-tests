@@ -14,7 +14,7 @@ public enum MenuPrincipalEnum {
 		this.descricao = descricao;
 	}
 	
-	public String getDescricao() {
+	public String get() {
 		return this.descricao;
 	}
 }
