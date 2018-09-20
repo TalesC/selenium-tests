@@ -23,7 +23,8 @@ public class TestPricenarioEditarRecurso {
 				
 		WebElement e = selenium.procurarItem(By.tagName("app-tinymce")).findElement(By.tagName("iframe"));
 		selenium.entrarNoIFrame(e);
-		selenium.procurarItem(By.tagName("body")).findElement(By.tagName("p")).clear();
+		
+		selenium.procurarItem(By.tagName("body")).clear();
 		selenium.esperarPor(1);
 		selenium.procurarItem(By.tagName("body")).sendKeys("Selenium Teste Automatizado Edicao");
 		selenium.esperarPor(1);	

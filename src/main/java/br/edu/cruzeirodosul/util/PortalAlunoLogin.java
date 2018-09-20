@@ -8,13 +8,13 @@ public class PortalAlunoLogin {
 	
 	public static Selenium irParaAreaAluno(String rgm, String password) {
 		Selenium selenium = login(rgm, password);	
-		selenium.pegarItemPelaTagENome("span", "ÁREA DO ALUNO").click();
+		selenium.pegarItemPelaTagENome("button", "ÁREA DO ALUNO").click();
 		return selenium;
 	}
 	
 	public static Selenium irParaBlackboard(String rgm, String password) {
 		Selenium selenium = login(rgm, password);	
-		selenium.pegarItemPelaTagENome("a", "BLACKBOARD").click();
+		selenium.pegarItemPelaTagENome("button", "BLACKBOARD").click();
 		return selenium;
 	}
 	
