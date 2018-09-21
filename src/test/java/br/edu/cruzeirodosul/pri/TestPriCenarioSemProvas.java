@@ -16,7 +16,7 @@ import br.edu.cruzeirodosul.util.pri.PriUsers;
 
 public class TestPriCenarioSemProvas {
 	
-	UserLogin user = PriUsers.getUserCenarioSemProva(Cenario.DEV);
+	UserLogin user = PriUsers.getUserSemPRI(Cenario.DEV);
 
 	@Test
 	public void deveRetornarMensagemDeErroQuandoNaoHouverprovas() {

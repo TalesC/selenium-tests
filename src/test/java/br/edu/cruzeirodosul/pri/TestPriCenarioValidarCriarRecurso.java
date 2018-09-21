@@ -16,7 +16,7 @@ import br.edu.cruzeirodosul.util.pri.PriUsers;
 
 public class TestPriCenarioValidarCriarRecurso {
 	
-	UserLogin user = PriUsers.getUserCenarioProvaRealizadaSemRecurso(Cenario.DEV);
+	UserLogin user = PriUsers.getUserPRIRealizadaSemRecurso(Cenario.DEV);
 	
 	@Test
 	public void deveValidarCriarRecursoForaDoPerirodo() {

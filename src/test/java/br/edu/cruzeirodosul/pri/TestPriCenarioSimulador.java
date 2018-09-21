@@ -21,7 +21,7 @@ import java.util.List;
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioSimulador {
 
-	UserLogin user = PriUsers.getUserCenarioProvaNaoRealizada(Cenario.DEV);
+	UserLogin user = PriUsers.getUserPRINaoRealizada(Cenario.DEV);
 	
     @Test
     public void abrirSimulador() {

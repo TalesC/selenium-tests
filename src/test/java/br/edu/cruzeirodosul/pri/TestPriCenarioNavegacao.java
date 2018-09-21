@@ -18,7 +18,7 @@ import br.edu.cruzeirodosul.util.pri.PriUsers;
 @RunWith(BlockJUnit4ClassRunner.class)
 public class TestPriCenarioNavegacao {
 
-	UserLogin user = PriUsers.getUserCenarioProvaRealizadaComRecurso(Cenario.DEV);
+	UserLogin user = PriUsers.getUserPRIRealizadaComRecurso(Cenario.DEV);
 	
 	@Test
 	public void navegar() {

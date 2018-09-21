@@ -17,7 +17,7 @@ import br.edu.cruzeirodosul.util.pri.PriUsers;
 
 public class TestPricenarioEditarRecurso {
 
-	UserLogin user = PriUsers.getUserCenarioProvaRealizadaComRecurso(Cenario.DEV);
+	UserLogin user = PriUsers.getUserPRIRealizadaComRecurso(Cenario.DEV);
 	
 	@Test
 	public void deveEditarUmRecurso() {
